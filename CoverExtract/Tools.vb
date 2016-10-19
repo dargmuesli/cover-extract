@@ -25,7 +25,8 @@ Public Module Tools
 
         ' Ensure the "folder" is valid
         If Not FileSystem.DirectoryExists(folder) Then
-            Throw New ArgumentException("The directory '" & folder & "'does not exist!")
+            ' Fallback to desktop
+            folder = SpecialFolder.Desktop
         End If
 
         ' Ensure a "label" is given

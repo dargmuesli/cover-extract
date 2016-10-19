@@ -5,6 +5,8 @@ Imports System.IO
 <Assembly: CLSCompliant(True)>
 
 Public Class FrmMain
+    Private initialized As Boolean
+
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ' Initialize the source and target folders
@@ -21,6 +23,11 @@ Public Class FrmMain
 
         ' Load "frame" setting
         NudMainFrame.Value = My.Settings.Frame
+
+        ' Load "overwrite" setting
+        ChkMainOverwrite.Checked = My.Settings.Overwrite
+
+        initialized = True
     End Sub
 
     Private Sub BtnMainSource_Click(sender As Object, e As EventArgs) Handles BtnMainSource.Click
@@ -40,13 +47,21 @@ Public Class FrmMain
     Private Sub NudMainFrame_ValueChanged(sender As Object, e As EventArgs) Handles NudMainFrame.ValueChanged
 
         ' Update the "frame" setting
-        My.Settings.Frame = NudMainFrame.Value
+        If initialized Then
+            My.Settings.Frame = NudMainFrame.Value
+        End If
     End Sub
 
     Private Sub NudMainFrame_KeyPress(sender As Object, e As KeyPressEventArgs) Handles NudMainFrame.KeyPress
 
         ' Update the "frame" setting
         Call NudMainFrame_ValueChanged(sender, e)
+    End Sub
+
+    Private Sub ChkMainOVerwrite_CheckedChanged(sender As Object, e As EventArgs) Handles ChkMainOverwrite.CheckedChanged
+
+        ' Update the "overwrite" setting
+        My.Settings.Overwrite = ChkMainOverwrite.Checked
     End Sub
 
     <CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1303:Literale nicht als lokalisierte Parameter übergeben", MessageId:="System.Windows.Forms.MessageBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Windows.Forms.MessageBoxOptions)")>
@@ -58,6 +73,8 @@ Public Class FrmMain
             ' Lock the UI
             BtnMainSource.Enabled = False
             BtnMainTarget.Enabled = False
+            NudMainFrame.Enabled = False
+            ChkMainOverwrite.Enabled = False
             BtnMainStart.Enabled = False
             BtnMainCancel.Enabled = True
 
@@ -90,7 +107,9 @@ Public Class FrmMain
                 worker.ReportProgress(Math.Round(Files.IndexOf(sourceFile) / Files.Count * 100))
 
                 ' Extract the frame
-                ffmpeg.GetVideoThumbnail(sourceFile, targetFile, My.Settings.Frame)
+                If My.Settings.Overwrite Or Not File.Exists(targetFile) Then
+                    ffmpeg.GetVideoThumbnail(sourceFile, targetFile, My.Settings.Frame)
+                End If
             End If
         Next
     End Sub
@@ -113,6 +132,8 @@ Public Class FrmMain
         ' Unlock the UI
         BtnMainSource.Enabled = True
         BtnMainTarget.Enabled = True
+        NudMainFrame.Enabled = True
+        ChkMainOverwrite.Enabled = True
         BtnMainStart.Enabled = True
         BtnMainCancel.Enabled = False
 

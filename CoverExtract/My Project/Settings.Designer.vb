@@ -76,6 +76,18 @@ Namespace My
                 Me("Frame") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property Overwrite() As Boolean
+            Get
+                Return CType(Me("Overwrite"),Boolean)
+            End Get
+            Set
+                Me("Overwrite") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

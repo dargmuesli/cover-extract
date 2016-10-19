@@ -35,6 +35,7 @@ Partial Class FrmMain
         Me.NudMainFrame = New System.Windows.Forms.NumericUpDown()
         Me.LblMainFrame = New System.Windows.Forms.Label()
         Me.TtMain = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ChkMainOverwrite = New System.Windows.Forms.CheckBox()
         CType(Me.NudMainFrame, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -136,11 +137,22 @@ Partial Class FrmMain
         Me.LblMainFrame.TabIndex = 8
         Me.LblMainFrame.Text = "Seconds"
         '
+        'ChkMainOverwrite
+        '
+        Me.ChkMainOverwrite.AutoSize = True
+        Me.ChkMainOverwrite.Location = New System.Drawing.Point(276, 92)
+        Me.ChkMainOverwrite.Name = "ChkMainOverwrite"
+        Me.ChkMainOverwrite.Size = New System.Drawing.Size(88, 23)
+        Me.ChkMainOverwrite.TabIndex = 9
+        Me.ChkMainOverwrite.Text = "Overwrite"
+        Me.ChkMainOverwrite.UseVisualStyleBackColor = True
+        '
         'FrmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(430, 197)
+        Me.Controls.Add(Me.ChkMainOverwrite)
         Me.Controls.Add(Me.LblMainFrame)
         Me.Controls.Add(Me.NudMainFrame)
         Me.Controls.Add(Me.BtnMainCancel)
@@ -175,4 +187,5 @@ Partial Class FrmMain
     Friend WithEvents NudMainFrame As NumericUpDown
     Friend WithEvents LblMainFrame As Label
     Friend WithEvents TtMain As ToolTip
+    Friend WithEvents ChkMainOverwrite As CheckBox
 End Class
