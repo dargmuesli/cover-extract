@@ -9,6 +9,9 @@ Public Class FrmMain
 
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        ' Set version number in title
+        Text = My.Application.Info.Title + " " + My.Application.Info.Version.ToString
+
         ' Initialize the source and target folders
         If My.Settings.SelectedFolders Is Nothing Then
             My.Settings.SelectedFolders = New Specialized.StringCollection

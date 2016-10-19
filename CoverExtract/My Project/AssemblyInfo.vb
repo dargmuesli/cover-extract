@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 ' Werte der Assemblyattribute überprüfen
 
 <Assembly: AssemblyTitle("CoverExtract")>
-<Assembly: AssemblyDescription("Extracts one frame from a mp4 video to a jpg image.")>
+<Assembly: AssemblyDescription("A simple tool that extracts one frame from .mp4 videos in a folder and a specified point in time.")>
 <Assembly: AssemblyCompany("Dargmuesli")>
 <Assembly: AssemblyProduct("CoverExtract")>
 <Assembly: AssemblyCopyright("Copyright ©  2016")>
@@ -32,6 +32,6 @@ Imports System.Runtime.InteropServices
 ' übernehmen, indem Sie "*" eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("1.0.1.0")>
+<Assembly: AssemblyFileVersion("1.0.1.0")>
 <Assembly: NeutralResourcesLanguage("en")>
