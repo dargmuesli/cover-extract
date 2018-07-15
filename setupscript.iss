@@ -14,11 +14,11 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile=D:\Dokumente\Inno Setup\Lizenzen\GNU GPL 3.txt
-OutputDir=D:\Dokumente\Visual Studio 2015\Projects\CoverExtract\Executables
+LicenseFile={#SourcePath}\LICENSE
+OutputDir={#SourcePath}
 OutputBaseFilename=CoverExtract-{#MyAppVersion}-Setup
-SetupIconFile=D:\Dokumente\Visual Studio 2015\Projects\CoverExtract\CoverExtract\CE.ico              
-UninstallDisplayIcon=D:\Dokumente\Visual Studio 2015\Projects\CoverExtract\CoverExtract\CE.ico
+SetupIconFile={#SourcePath}\CoverExtract\CE.ico              
+UninstallDisplayIcon={#SourcePath}\CoverExtract\CE.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -30,9 +30,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "D:\Dokumente\Visual Studio 2015\Projects\CoverExtract\CoverExtract\bin\Release\CoverExtract.exe"; DestDir: "{app}"; Flags: ignoreversion   
-Source: "D:\Dokumente\Visual Studio 2015\Projects\CoverExtract\CoverExtract\bin\Release\CoverExtract.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Dokumente\Visual Studio 2015\Projects\CoverExtract\CoverExtract\bin\Release\NReco.VideoConverter.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourcePath}\CoverExtract\bin\Release\CoverExtract.exe"; DestDir: "{app}"; Flags: ignoreversion   
+Source: "{#SourcePath}\CoverExtract\bin\Release\CoverExtract.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourcePath}\CoverExtract\bin\Release\NReco.VideoConverter.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
