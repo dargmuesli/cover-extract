@@ -44,7 +44,12 @@ Public Class FrmMain
     Private Sub BtnMainTarget_Click(sender As Object, e As EventArgs) Handles BtnMainTarget.Click
 
         ' Select the target folder
-        OpenFbd(1, My.Settings.SelectedFolders(1), LblMainTarget)
+        If Directory.Exists(My.Settings.SelectedFolders(0)) Then
+            OpenFbd(0, My.Settings.SelectedFolders(0), LblMainTarget)
+        Else
+            OpenFbd(1, My.Settings.SelectedFolders(1), LblMainTarget)
+        End If
+
         LblMainTarget.Text = CompactString(My.Settings.SelectedFolders(1), Width - 125, LblMainTarget.Font)
     End Sub
 
