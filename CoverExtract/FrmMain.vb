@@ -7,6 +7,7 @@ Imports System.IO
 Public Class FrmMain
     Private initialized As Boolean
 
+    <CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1303:Literale nicht als lokalisierte Parameter übergeben", MessageId:="System.Windows.Forms.Form.set_Text(System.String)")>
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ' Set version number in title
@@ -14,10 +15,10 @@ Public Class FrmMain
 
         ' Initialize the source and target folders
         If My.Settings.SelectedFolders Is Nothing Then
-            My.Settings.SelectedFolders = New Specialized.StringCollection
-
-            My.Settings.SelectedFolders.Add(GetFolderPath(SpecialFolder.Desktop))
-            My.Settings.SelectedFolders.Add(GetFolderPath(SpecialFolder.Desktop))
+            My.Settings.SelectedFolders = New Specialized.StringCollection From {
+                GetFolderPath(SpecialFolder.Desktop),
+                GetFolderPath(SpecialFolder.Desktop)
+            }
         End If
 
         ' Load "source" and "target" settings
