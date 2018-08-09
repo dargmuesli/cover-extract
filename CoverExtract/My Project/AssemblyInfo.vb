@@ -13,8 +13,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("A simple tool that extracts one frame from .mp4 videos in a folder and a specified point in time.")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("CoverExtract")>
-<Assembly: AssemblyCopyright("Copyright ©  2018")>
-<Assembly: AssemblyTrademark("Dargmuesli")>
+<Assembly: AssemblyCopyright("Copyright © 2018")>
+<Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
