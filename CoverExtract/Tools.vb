@@ -41,7 +41,7 @@ Public Module Tools
             Fbd.RootFolder = SpecialFolder.Desktop
 
             ' Navigate to last used folder
-            Fbd.SelectedPath = My.Settings.SelectedFolders(index)
+            Fbd.SelectedPath = folder
 
             ' Make only the target folder creatable
             If index = 0 Then

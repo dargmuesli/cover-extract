@@ -45,7 +45,7 @@ Public Class FrmMain
 
         ' Select the target folder
         If Directory.Exists(My.Settings.SelectedFolders(0)) Then
-            OpenFbd(0, My.Settings.SelectedFolders(0), LblMainTarget)
+            OpenFbd(1, My.Settings.SelectedFolders(0), LblMainTarget)
         Else
             OpenFbd(1, My.Settings.SelectedFolders(1), LblMainTarget)
         End If
