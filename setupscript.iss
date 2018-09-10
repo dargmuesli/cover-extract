@@ -32,6 +32,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 [Files]
 Source: "{#SourcePath}\CoverExtract\bin\Release\CoverExtract.exe"; DestDir: "{app}"; Flags: ignoreversion   
 Source: "{#SourcePath}\CoverExtract\bin\Release\CoverExtract.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourcePath}\CoverExtract\bin\Release\ffmpeg.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourcePath}\CoverExtract\bin\Release\NReco.VideoConverter.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
